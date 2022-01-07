@@ -12,20 +12,99 @@
     </header>
     <main>
       <form action="#">
+        .
         <fieldset>
           <legend>Выберите размер</legend>
-          <input type="radio" id="big" />
-          <label for="big">Большой</label><br />
-          <input type="radio" id="small" />
-          <label for="small">Маленький</label><br />
+          <input
+            type="radio"
+            name="size"
+            value="big"
+            id="big"
+            data-price="100"
+            data-calories="40"
+            checked
+          />
+          <label class="details" for="big"
+            ><span class="label-name">Большой</span>. Цена 100 руб. Калорийность
+            40 ккал</label
+          >
+          <span> </span><br />
+          <input
+            type="radio"
+            name="size"
+            value="small"
+            id="small"
+            data-price="50"
+            data-calories="20"
+          />
+          <label class="details" for="small"
+            ><span class="label-name">Маленький</span>. Цена 50 руб.
+            Калорийность 20 ккал</label
+          ><br />
         </fieldset>
         <fieldset>
           <legend>Выберите начинку</legend>
-          <input type="radio">
-          <input type="radio">
-          <input type="radio">
+          <input
+            type="radio"
+            name="stuffing"
+            value="cheese"
+            id="cheese"
+            data-price="10"
+            data-calories="20"
+            checked
+          /><label class="details" for="cheese"
+            ><span class="label-name">Сыр</span>. Цена 10 руб. Калорийность 20
+            ккал</label
+          ><br />
+          <input
+            type="radio"
+            name="stuffing"
+            value="potato"
+            id="potato"
+            data-price="15"
+            data-calories="10"
+          /><label class="details" for="potato"
+            ><span class="label-name">Картофель</span>. Цена 15 руб.
+            Калорийность 10 ккал</label
+          ><br />
+          <input
+            type="radio"
+            name="stuffing"
+            value="cabbage"
+            id="cabbage"
+            data-price="20"
+            data-calories="5"
+          /><label class="details" for="cabbage"
+            ><span class="label-name">Салат</span>. Цена 20 руб. Калорийность 5
+            ккал</label
+          >
+          <br />
         </fieldset>
-        <fieldset><legend>Выберите специи</legend></fieldset>
+        <fieldset>
+          <legend>Дополнительно</legend>
+          <input
+            type="checkbox"
+            name="topping"
+            value="mayo"
+            id="mayo"
+            data-price="20"
+            data-calories="5"
+          /><label class="details" for="mayo"
+            ><span class="label-name">Майонез</span>. Цена 20 руб. Калорийность
+            5 ккал.</label
+          ><br />
+          <input
+            type="checkbox"
+            name="topping"
+            value="spice"
+            id="spice"
+            data-price="15"
+            data-calories="0"
+          /><label class="details" for="spice"
+            ><span class="label-name">Специи</span>. Цена 15 руб. Калорийность 0
+            ккал.</label
+          >
+        </fieldset>
       </form>
     </main>
   </body>

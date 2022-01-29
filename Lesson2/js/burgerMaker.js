@@ -25,11 +25,11 @@ class Burger {
     return result;
   }
   //_total это метод для вычисления итоговой цены и количества калорий
-  // где value это требуемое значение, которое далее используется в методе showSum()
-  _total(value) {
-    let result = this.size[value] + this.stuffing[value];
+  // где param это требуемое значение (либо калории, либо цена), которое далее используется в методе showSum()
+  _total(param) {
+    let result = this.size[param] + this.stuffing[param];
     this.topping.forEach((el) => {
-      result += el[value];
+      result += el[param];
     });
     return result;
   }
@@ -38,3 +38,9 @@ class Burger {
     document.getElementById(calories).textContent = `${this._total(calories)} калорий`;
   }
 }
+let inputs = [...document.getElementsByTagName('input')];
+inputs.forEach(addEventListener('input', () => {
+  let burger = new Burger('size', 'stuffing', 'topping');
+  burger.showSum('price', 'calories');
+})
+);

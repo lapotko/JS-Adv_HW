@@ -38,6 +38,12 @@ class Burger {
     document.getElementById(calories).textContent = `${this._total(calories)} калорий`;
   }
 }
+//Считываем значения по-умолчанию сразу после загрузки страницы и выводим результат 
+document.addEventListener('DOMContentLoaded', () => {
+  let burger = new Burger('size', 'stuffing', 'topping');
+  burger.showSum('price', 'calories');
+});
+//присваиваем событие каждому инпуту, для динамического обновления данных при изменении значения
 let inputs = [...document.getElementsByTagName('input')];
 inputs.forEach(addEventListener('input', () => {
   let burger = new Burger('size', 'stuffing', 'topping');

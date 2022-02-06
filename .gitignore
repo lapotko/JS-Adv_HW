@@ -1,4 +1,5 @@
 *.zip 
+test*.*
 test.*
 !/Test/test.html
 

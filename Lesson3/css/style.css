@@ -5,14 +5,17 @@ header{
     display: flex;
     background-color: #2f2a2d;
     justify-content: space-between;
-    color: #fafafa;
+    
     padding: 30px 80px;
+}
+.cart{
+    position: relative;
 }
 button{
     outline: none;
 }
 .logo{
-
+    color: #fafafa;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -33,6 +36,29 @@ button{
 .btn-cart, .logo{
     align-self: center;
 }
+
+.cart-content{
+    padding: 15px 15px;
+    left: -70%;
+    top: 50px;
+    right: -60%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    background-color: #fafafa;
+    box-shadow: -2px 2px 5px gray;
+}
+.cart-content::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 100px;
+    border-bottom: 10px solid white;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+}
+
 .products{
     column-gap: 30px;
     display: grid;

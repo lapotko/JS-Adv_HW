@@ -1,69 +1,101 @@
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+const cartContent = document.querySelector('.cart-content');
 
-// let getRequest = (url, cb) => {
-//     let xhr = new XMLHttpRequest();
-//     // window.ActiveXObject -> xhr = new ActiveXObject()
-//     xhr.open("GET", url, true);
-//     xhr.onreadystatechange = () => {
-//         if(xhr.readyState === 4){
-//             if(xhr.status !== 200){
-//                 console.log('Error');
-//             } else {
-//                 cb(xhr.responseText);
-//             }
-//         }
-//     };
-//     xhr.send();
-// };
 
+class Cart {
+    constructor(container = cartContent) {
+        this.container = container;
+        this.cartGoods = [];
+        this._showHideCart();
+        this._getCartProducts()
+            .then(cartData => {
+                this.cartGoods = [...cartData.contents];
+                this.renderCart()
+            })
+    }
+    _getCartProducts() {
+        return fetch(`${API}/getBasket.json`)
+            .then(result => result.json())
+            .catch(error => {
+                console.log(error);
+            })
+    }
+    renderCart() {
+        const block = this.container;
+        for (let product of this.cartGoods) {
+            const productObj = new CartItem(product);
+            block.insertAdjacentHTML('beforeend', productObj.renderCartItem());
+        }
+    }
+    _showHideCart() {
+        let button = document.querySelector('.btn-cart');
+        button.addEventListener('click', () => {
+            cartContent.style.display == "" ? cartContent.style.display = "block" : cartContent.style.display = "";
+        });
+    }
+
+}
+class CartItem {
+    constructor(item, img = 'https://via.placeholder.com/50x70') {
+        this.title = item.product_name;
+        this.price = item.price;
+        this.id = item.id_product;
+        this.quantity = item.quantity;
+        this.img = img;
+
+    }
+
+    renderCartItem() {
+        return `<div data-id="${this.id}">
+                <img src="${this.img}" alt="Some img">
+                <div>
+                    <p>${this.title} ${this.price * this.quantity} $</p>
+                    <p>${this.quantity} шт</p>
+                    <button class = 'delButton'>X</button>
+                </div>
+            </div>`
+    }
+
+}
 class ProductsList {
-    constructor(container = '.products'){
+    constructor(container = '.products') {
         this.container = container;
         this.goods = [];//массив товаров из JSON документа
         this._getProducts()
             .then(data => { //data - объект js
-                 this.goods = [...data];
-                 this.render()
+                this.goods = [...data];
+                this.render()
             });
     }
-    // _fetchProducts(cb){
-    //     getRequest(`${API}/catalogData.json`, (data) => {
-    //         this.goods = JSON.parse(data);
-    //         console.log(this.goods);
-    //         cb();
-    //     })
-    // }
-    _getProducts(){
-      
+    _getProducts() {
+
         return fetch(`${API}/catalogData.json`)
             .then(result => result.json())
             .catch(error => {
                 console.log(error);
             })
     }
-    calcSum(){
+    calcSum() {
         return this.allProducts.reduce((accum, item) => accum += item.price, 0);
     }
-    render(){
+    render() {
         const block = document.querySelector(this.container);
-        for (let product of this.goods){
+        for (let product of this.goods) {
             const productObj = new ProductItem(product);
-//            this.allProducts.push(productObj);
-            block.insertAdjacentHTML('beforeend', productObj.render());
+            block.insertAdjacentHTML('beforeend', productObj.renderItem());
         }
 
     }
 }
-
-
 class ProductItem {
-    constructor(product, img = 'https://via.placeholder.com/200x150'){
+    constructor(product, img = 'https://via.placeholder.com/200x150') {
         this.title = product.product_name;
         this.price = product.price;
         this.id = product.id_product;
         this.img = img;
     }
-    render(){
+    renderItem() {
+
         return `<div class="product-item" data-id="${this.id}">
                 <img src="${this.img}" alt="Some img">
                 <div class="desc">
@@ -74,7 +106,8 @@ class ProductItem {
             </div>`
     }
 }
-
 let list = new ProductsList();
-console.log(list.allProducts);
+let cart = new Cart;
+
+
 

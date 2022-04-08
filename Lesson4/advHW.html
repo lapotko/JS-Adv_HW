@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Валидация формы</title>
+  <style>
+    input {
+      display: block;
+    }
+
+    input:not(input:first-child) {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="#">
+    <legend>
+      Форма обратной связи
+      <br>
+      <fieldset>
+        <input id="name" type="text" placeholder="Имя и фамилия">
+        <input id="phone" type="tel" placeholder="Номер телефона">
+        <input id="mail" type="email" maxlength="100" placeholder="Электронная почта">
+        <input type="submit" value="Отправить">
+        <!--       <input type="submit" value="Отправить">  -->
+      </fieldset>
+  </form>
+  <script src="js/advHW.js"></script>
+</body>
+
+</html>

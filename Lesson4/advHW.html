@@ -14,6 +14,13 @@
     input:not(input:first-child) {
       margin-top: 20px;
     }
+
+    button[type='submit'] {
+      margin-top: 20px;
+      width: 75px;
+      height: 25px;
+      padding: 10px;
+    }
   </style>
 </head>
 
@@ -26,8 +33,7 @@
         <input id="name" type="text" placeholder="Имя и фамилия">
         <input id="phone" type="tel" placeholder="Номер телефона">
         <input id="mail" type="email" maxlength="100" placeholder="Электронная почта">
-        <input type="submit" value="Отправить">
-        <!--       <input type="submit" value="Отправить">  -->
+        <button type="submit">Отправить</button>
       </fieldset>
   </form>
   <script src="js/advHW.js"></script>

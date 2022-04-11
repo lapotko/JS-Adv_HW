@@ -20,9 +20,9 @@ function test(event) {
         } else {
             p.classList.remove('visible');
             element.classList.remove('error');
-            alert('Данные приняты');
         }
     })
+    alert('Данные приняты');
 }
 button.onclick = test;
 

@@ -16,13 +16,12 @@ function test(event) {
             console.log('Не валидно = ' + element.value);
             element.classList.add('error');
             p.classList.add('visible');
-            element.value = '';
+            element.value = "";
         } else {
             p.classList.remove('visible');
             element.classList.remove('error');
         }
     })
-    alert('Данные приняты');
 }
 button.onclick = test;
 

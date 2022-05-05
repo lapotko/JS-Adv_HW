@@ -6,28 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Валидация формы</title>
-  <style>
-    input {
-      display: block;
-    }
-
-    input:not(input:first-child) {
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/advHW.css">
 </head>
 
 <body>
-  <form action="#">
+  <form novalidate action="#">
     <legend>
       Форма обратной связи
       <br>
       <fieldset>
-        <input id="name" type="text" placeholder="Имя и фамилия">
-        <input id="phone" type="tel" placeholder="Номер телефона">
-        <input id="mail" type="email" maxlength="100" placeholder="Электронная почта">
-        <input type="submit" value="Отправить">
-        <!--       <input type="submit" value="Отправить">  -->
+        <label for="name">Имя и фамилия</label>
+        <input id="name" type="text" placeholder="Только буквы" required
+          pattern="^[а-яА-яЁёa-zA-Z]+\s?[а-яА-яЁёa-zA-Z]*[\-]?[а-яА-яЁёa-zA-Z]*\s?$" title="Вводите только буквы">
+        <p>Должны быть только буквы</p>
+        <label for="phone">Номер телефона</label>
+        <input id="phone" type="tel" placeholder="+7(000)000-0000" required pattern="^\+7\(\d{3}\)\d{3}-\d{4}$"
+          title="Введите телефон в формате +7(ХХХ)ХХХ-ХХХХ">
+        <p>Укажите телефон в формате +7(000)000-0000</p>
+        <label for="mail">Электронная почта</label>
+        <input id="mail" type="email" maxlength="100" placeholder="Пример: email@mail.ru" required
+          pattern="^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,4}$">
+        <p>Вы ввели данные в неправильном формате</p>
+        <button type="submit">Отправить</button>
       </fieldset>
   </form>
   <script src="js/advHW.js"></script>

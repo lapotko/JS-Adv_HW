@@ -1,0 +1,46 @@
+.error {
+    border: 2px solid red;
+  }
+
+  .visible {
+    opacity: 1;
+  }
+
+  input {
+    display: block;
+    height: 18px;
+    width: 140px;
+    padding: 5px;
+  }
+
+  input:invalid {
+    border: 2px solid red;
+  }
+
+  input::placeholder {
+    font-size: 13px;
+    color: rgb(184, 181, 181);
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  label:not(label:first-child) {
+    margin-top: 20px;
+  }
+
+  button {
+    margin-top: 20px;
+    width: 75px;
+    height: 25px;
+    padding: 5px;
+    font-size: 0.7rem;
+  }
+
+  p {
+    margin: 0;
+    color: red;
+    opacity: 0;
+  }

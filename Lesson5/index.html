@@ -13,9 +13,9 @@
         <header>
             <div class="logo">E-shop</div>
             <div class="cart">
-                <form action="#" class="search-form">
+                <form action="#" class="search-form" @submit.prevent='filterGoods'>
                     <input v-model="searchLine" type="text" class="search-field">
-                    <button @click="filterGoods()" class="btn-search" type="submit">
+                    <button class="btn-search" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
